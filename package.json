@@ -1,0 +1,45 @@
+{
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/github-packages-ui-library.umd.js",
+  "module": "./dist/github-packages-ui-library.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/github-packages-ui-library.es.js",
+      "require": "./dist/github-packages-ui-library.umd.js"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@peshanghiwa"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peshanghiwa/github-packages-ui-library"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
+    "preserve": "vite build",
+    "serve": "vite preview --port 8080",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "test": "exit 0"
+  },
+  "name": "vite-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "path": "^0.12.7",
+    "vue": "^3.3.11"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vue-tsc": "^1.8.25"
+  }
+}
