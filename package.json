@@ -1,45 +1,33 @@
 {
+  "name": "permission-parser",
+  "version": "1.0.0",
+  "description": "A permission parser plugin for VueJS",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "main": "./dist/github-packages-ui-library.umd.js",
-  "module": "./dist/github-packages-ui-library.es.js",
-  "exports": {
-    ".": {
-      "import": "./dist/github-packages-ui-library.es.js",
-      "require": "./dist/github-packages-ui-library.umd.js"
-    }
-  },
-  "types": "./dist/types/index.d.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@peshanghiwa"
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest --coverage",
+    "test-updateMode": "vitest --coverage -u"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/peshanghiwa/github-packages-ui-library"
+    "url": "git+https://github.com/MatiasGrimm/permission-parser.git"
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
-    "preserve": "vite build",
-    "serve": "vite preview --port 8080",
-    "typecheck": "vue-tsc --noEmit",
-    "preview": "vite preview",
-    "test": "exit 0"
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatiasGrimm/permission-parser/issues"
   },
-  "name": "vite-project",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "dependencies": {
-    "path": "^0.12.7",
-    "vue": "^3.3.11"
-  },
+  "homepage": "https://github.com/MatiasGrimm/permission-parser#readme",
   "devDependencies": {
-    "@types/node": "^20.10.5",
-    "@vitejs/plugin-vue": "^4.5.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.0.8",
-    "vue-tsc": "^1.8.25"
+    "@vitest/coverage-v8": "^1.1.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
   }
 }

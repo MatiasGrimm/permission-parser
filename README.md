@@ -1,18 +1,36 @@
-# Vue 3 + TypeScript + Vite
+<h1>Permission parser</h1>
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+<h2> Usage</h2>
 
-## Recommended IDE Setup
+1. npm install permission-parser
+2. Go to main.ts
+3. import definePermissions
+4. definePermissions takes an array of permission (found in types folder) as argument.
+5. Use getPermission() to parse number to string & string to number etc.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+<h2> Example </h2>
 
-## Type Support For `.vue` Imports in TS
+<i> main.ts </i>
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+<p>import { definePermissions, getPermissions } from 'permission-parser';</p>
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+```typescript
+definePermissions([
+  { access: 1, name: "Read" },
+  { access: 2, name: "Write" },
+  { access: 4, name: "Delete" },
+  { access: 8, name: "Modify" },
+]);
+```
 
-1. Disable the built-in TypeScript Extension
-   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+```typescript
+getPermissions(15); // Returns [1, 2, 4, 8]
+```
+
+```typescript
+getPermissions([1, 2, 4, 8]); // Returns ["Read", "Write", "Delete", "Modify"]
+```
+
+```typescript
+getPermissions(["Read", "Write", "Delete", "Modify"]); // Returns [1, 2, 4, 8]
+```
