@@ -1,5 +1,5 @@
 {
-  "name": "permission-parser",
+  "name": "@freelance_projects/permission-parser",
   "version": "1.0.1",
   "description": "A permission parser plugin for VueJS",
   "main": "./dist/index.js",
