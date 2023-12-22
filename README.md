@@ -2,7 +2,7 @@
 
 <h2> Usage</h2>
 
-1. npm install permission-parser
+1. First install the package using `npm i`
 2. Go to main.ts
 3. import definePermissions
 4. definePermissions takes an array of permission (found in types folder) as argument.
